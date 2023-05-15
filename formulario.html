@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style-formulario.css">
+    <link rel="stylesheet" href="css/responsiveStyle1024.css">
+    <link rel="stylesheet" href="css/responsiveStyle765.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="menu container">
+            <a href="index.html" class="logo">Catering</a>
+
+            <input type="checkbox" id="menu-responsive" name="menu-responsive">
+            <label for="menu-responsive"> <img src="images/menu.png" class="menu-icono" alt=""></label>
+           
+            <nav class="navbar">
+                <ul>
+                    <li> <a href="index.html">Inicio</a></li>
+                    <li> <a href="somos.html">Quienes somos</a></li>
+                    <li> <a href="menu.html">Menu</a>
+                        <ul class="menu-vertical">
+                            <li><a href="mdesayunos.html">Menu Desayuno</a></li>
+                            <li><a href="mcocteles.html">Menu Coctel</a></li>
+                            <li><a href="msalados.html">Menu Salado</a></li>
+                            <li><a href="formulario.html">Pide Ahora</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="blog.html">Blog</a></li>
+                    <li> <a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+    
+    <main class="formulario-pedido container">
+
+        <form class="mi-formulario" action="procesarPeticion.jsp" method="post">
+            <h1>Pide ahora tu menú: </h1>
+                    <fieldset>
+                    <legend>Datos personales:</legend>
+                    <div>
+                        
+                        <div>
+                            <label for="nombre">Nombre y apellidos: </label>
+                            <input id="nombre" type="text" name="nombre"/>
+                        </div>
+                        <div>
+                            <label for="telefono">Teléfono: </label>
+                            <input id="telefono" type="number" name="telefono"/>
+                        </div>
+
+                        <div>
+                            <label for="email">Correo electrónico: </label>
+                            <input id="email" type="email" name="email"/>
+                        </div>
+                    </div> 
+                    </fieldset>
+                    <fieldset>
+                        <legend>Dirección de facturación:</legend>
+                        <div>
+                            <div>
+                                <label for="direccionfact">Calle: </label>
+                                <input id="direccionfact" type="text" name="calle"/>
+                            </div>
+                            <div>
+                                <label for="direccionfact">Código postal: </label>
+                                <input id="direccionfact" type="number" name="codigopostal"/>
+                            </div>
+                            <div>
+                                <label for="direccionfact">Población: </label>
+                                <input id="direccionfact" type="text" name="poblacion"/>
+                            </div>
+                            <div>
+                                <label for="direccionfact">Ciudad: </label>
+                                <input id="direccionfact" type="text" name="ciudad"/>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend >Datos del pedido: </legend>
+                        <div>
+                            <div>
+                                <label for="numpersonas">Nº de comensales: </label>
+                                <input id="numpersonas" type="number" name="numpersonas" />
+                            </div>
+                            <br>
+                            <div>
+                                <label for="menupedido">Menú a pedir: </label>
+                                <br />	
+                                <div class="opciones-pedido">
+                                    <input type="radio" name="menupedido" value="D" /> Desayuno<br />	
+                                    <select name="opcion" id="scolt-right">
+                                        <option>Menu 1</option>
+                                        <option>Menu 2</option>
+                                        <option>Menu 3</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="opciones-pedido">
+                                    <input type="radio" name="menupedido" value="S" /> Salado<br />	
+                                    <select name="opcion" id="scolt-right">
+                                        <option>Menu 1</option>
+                                        <option>Menu 2</option>
+                                        <option>Menu 3</option>
+                                        <option>Menu 4</option>
+                                    </select>
+                                </div>
+                                <div class="opciones-pedido">
+                                    <input type="radio" name="menupedido" value="C" checked/> Cóctel<br />
+                                    <select name="opcion" id="scolt-right">
+                                        <option>Menu 1</option>
+                                        <option>Menu 2</option>                                        
+                                    </select>
+                                </div>                         
+                            </div>                       
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="checkbox-list">
+                        <legend>Alérgenos: </legend>
+                        <div>
+                            <input type="checkbox" name="alergenos" value="M" /> Gluten<br />	
+                            <input type="checkbox" name="alergenos" value="L" /> Frutos secos<br />	
+                            <input type="checkbox" name="alergenos" value="D" /> Lactosa<br />	
+                            <input type="checkbox" name="alergenos" value="V" /> Crustáceos<br />	
+                            <input type="checkbox" name="alergenos" value="V" label for="alergenos"> Otros: </label>
+                            <input id="alergenos" type="text" name="alergenos"/>
+
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Dirección de envío: </legend>
+                        <div>
+                            <label for="direccionpedido">Calle: </label>
+                            <input id="direccionpedido" type="text" name="calle"/>
+                            <label for="direccionpedido">Código postal: </label>
+                            <input id="direccionpedido" type="text" name="codigopostal"/>
+                            <label for="direccionpedido">Población: </label>
+                            <input id="direccionpedido" type="text" name="poblacion"/>
+                            <label for="direccionpedido">Ciudad: </label>
+                            <input id="direccionpedido" type="text" name="ciudad"/>
+                            <label for="fechapedido">Fecha de entrega: </label>
+                            <input type="date">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Observaciones: </legend>
+                        
+                            <div>
+                                <textarea style="resize: none;" rows="5" cols="80" name="observaciones"></textarea>
+                            </div>
+                        
+                    </fieldset>
+
+                    <div class="boton-submit">
+                        <a href="gracias.html" type="submit">Realizar pedido</a>
+                    </div>	
+             
+        </form>
+    </main>
+
+    <hr>
+    <footer class="footer">
+       
+        <!-- 
+            Contendor basado en un "grid" de 3 columnas nuestro footer:
+                . Nombre de la empresa y una slogan
+                . Redes sociales
+                . Datos sobre nosotros como "telefono", "dirección" y "email"
+            Con un testimonio al final
+        -->
+        <div class="grid-footer">
+            <!-- Grupo contenedor para poder dar formato al grid-->
+            <div class="box-footer">
+                <h2>Empresa</h2>
+                <hr/>
+                <p id="footer-description">
+                    "Deliciosos sabores en cada bocado: descubre la magia de nuestro catering"
+                </p>
+            </div>
+            <div class="box-footer">
+                <h2>Siguenos</h2>
+                <hr/>
+                <!-- Contenedor de iconos con link para poder editarlo en css -->
+                <div class="social-media"> 
+                    <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram_log.png" ></a>
+                    <a href="https://twitter.com/" target="_blank"><img src="images/twitter_log.png" href = ""></a>                    
+                    <a href="https://facebook.com/" target="_blank"><img src="images/facebook_log.png" href = ""></a>
+                    
+                </div>
+            </div>
+            <div class="box-footer">
+                <h2>Contacta con nosotros</h2>
+                <hr>    
+                <!--Contenedor con "imagen" "titulo" y "cuerpo"
+                    para dar un formato en css con "float" a la "imagen"
+                -->
+                <div class="inner-box-footer">
+                    <img id="phone_id" src="images/phone_log.png">
+                    <h3>Telefono</h3>
+                    <a href="tel: +1234567890">000 000 000</a>                    
+                </div>
+                <div class="inner-box-footer">
+                    <img id="direction_id" src="images/direction_log.png">
+                    <h3>Dirección</h3>
+                    <a href="contacto.html">Calle Zurich, 31, 28232 Las Rozas de Madrid, Madrid</a>
+                    
+                </div>
+                <div class="inner-box-footer">
+                    <img src="images/email_log.png">
+                    <h3>Email</h3>
+                    <a href="mailto:dasiga97@gmail.com">info@edix.com</a>                    
+                </div>
+            </div>
+        </div>  
+        <!-- Contenedor para dar formato al terminal
+            . Link a Derechos de Copyright
+            . Link a Edix
+        -->
+        <div class="footer_terminal top-space">
+            <h6>Grupo 4 2023</h6>         
+            <h6>Trabajo realizado por estudiantes de <a href="https://www.edix.com/es/" target="_blank">Edix</a></h6>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>

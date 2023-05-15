@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/ite">    
         
-        <html>
+       <html>
             <head>        
                 <title>Grupo6_Actividad3</title>
             </head>
@@ -14,6 +14,7 @@
                         <h2><xsl:value-of select="@nombre"/></h2>
                     </a>
                 </header>
+
                 <main>
                     <div class="titulo">
                         <h1><xsl:value-of select="@nombre"/></h1>
@@ -85,14 +86,15 @@
                             <xsl:value-of select="telefono"/>
                         </a>
                         <hr/>
-                        <a href="https://institutotecnologico.edix.com" target="_blanck"><xsl:value-of select="@web"/></a>
+                        <a href="https://institutotecnologico.edix.com" target="_blank"><xsl:value-of select="@web"/></a>
                         <hr/>
-                        <a href="https://www.grupoproeduca.com/"><xsl:value-of select="empresa"></a>
+                        <a href="https://www.grupoproeduca.com/"><xsl:value-of select="empresa"/></a>
                     </div>
                 </footer>
 
             </body>        
         </html>    
+       
     </xsl:template>
 </xsl:stylesheet>
 

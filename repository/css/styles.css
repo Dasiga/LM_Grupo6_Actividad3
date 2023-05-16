@@ -1,0 +1,117 @@
+* {
+    font-family: sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+/*HEADER*/
+
+header{
+    margin-bottom: 100px;
+
+    background-color: black;
+    color: white;
+
+    display: flex;
+    gap: 10px;
+
+    align-content: left;
+}
+
+header img{
+    width: 100px;
+    margin-right: 60%;
+    margin-left: 5%;
+}
+
+
+header a{
+    color: white;
+    margin: auto;
+    
+}
+
+/*FOOTER*/
+
+footer{
+    margin-top: 100px;
+    min-height: 50px;
+    background-color: black;
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+
+footer *{
+    margin: auto;
+    color: white;
+}
+
+/*MAIN*/
+
+main hr{
+    width: 75%;
+}
+
+main .titulo{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.personal{
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+   
+    margin-bottom: 50px;
+}
+
+.personal .contenedor-tabla{
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+
+    align-content: start;
+}
+
+.contenedor-tabla table{
+    margin: auto;
+    width: 80%;
+}
+
+
+.contenedor-secundario{
+   margin: auto;
+    padding: 0px 10%;
+
+   display: flex;
+   flex-wrap: wrap;
+
+   align-content: baseline;
+}
+
+
+main .ciclos{
+    max-width: 40%;
+}
+
+main .ciclos fieldset{
+    margin-bottom: 20px;
+}
+
+/*Formulario*/
+
+main form{
+    width: 250px;
+    margin-left: 10%;
+}
+
+main form *{
+    margin-top: 2px;
+}

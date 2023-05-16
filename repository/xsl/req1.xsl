@@ -5,6 +5,7 @@
        <html>
             <head>        
                 <title>Grupo6_Actividad3</title>
+                <link rel="stylesheet" href="../css/styles.css"/>
             </head>
             <body>
                 <header>                                        
@@ -19,77 +20,108 @@
                     <div class="titulo">
                         <h1><xsl:value-of select="@nombre"/></h1>
                         <hr/>
-                    </div>                    
+                    </div>                                        
                     <div class="personal">
-                        <h2>Profesorado</h2>                        
-                        <table border="1">
-                            <thead>
-                                <tr>
-                                    <th>Numero</th>
-                                    <th>Nombre</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <xsl:for-each select="profesores/profesor">
-                                    <tr>                                    
-                                        <td><xsl:value-of select="id"/></td>
-                                        <td><xsl:value-of select="nombre"/></td>                                   
-                                    </tr>                                
-                                </xsl:for-each>
-                            </tbody>
-                        </table>     
-
-                        <h2>Direccion</h2>      
-                        <table border="1">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Cargo</th>
-                                    <th>Lugar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><xsl:value-of select="director/nombre"/></td>
-                                    <td>Director</td>
-                                    <td><xsl:value-of select="director/despacho"/></td>
-                                </tr>
-                                 <tr>
-                                    <td><xsl:value-of select="jefe_estudios/nombre"/></td>
-                                    <td>Jefe de estudios</td>
-                                    <td><xsl:value-of select="jefe_estudios/despacho"/></td>
-                                </tr>
-                            </tbody>
-                        </table>          
+                        <div class="contenedor-tabla">
+                            <h2>Profesorado</h2>                        
+                            <table border="1">
+                                <thead>
+                                    <tr>
+                                        <th>Numero</th>
+                                        <th>Nombre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <xsl:for-each select="profesores/profesor">
+                                        <tr>                                    
+                                            <td><xsl:value-of select="id"/></td>
+                                            <td><xsl:value-of select="nombre"/></td>                                   
+                                        </tr>                                
+                                    </xsl:for-each>
+                                </tbody>
+                            </table> 
+                        </div>
+                        <div class="contenedor-tabla">
+                            <h2>Direccion</h2>      
+                            <table border="1">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Cargo</th>
+                                        <th>Lugar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><xsl:value-of select="director/nombre"/></td>
+                                        <td>Director</td>
+                                        <td><xsl:value-of select="director/despacho"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><xsl:value-of select="jefe_estudios/nombre"/></td>
+                                        <td>Jefe de estudios</td>
+                                        <td><xsl:value-of select="jefe_estudios/despacho"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>         
+                        </div> 
                     </div>
-                    <div class="ciclos">
-                        <xsl:for-each select="ciclos/ciclo">
+                     <div class="titulo">
+                        <h1>Ciclos formativos</h1>
+                        <hr/>
+                    </div>   
+                    <div class="contenedor-secundario">
+                        <div class="ciclos">
+                            <xsl:for-each select="ciclos/ciclo">
+                                <fieldset>
+                                    <legend>
+                                        <xsl:value-of select="nombre"/> &#40;
+                                        <xsl:value-of select="@id"/>&#41; 
+                                    </legend>
+                                    <div class="contenedor-ciclo">
+                                        <ul>
+                                            <li>Grado <xsl:value-of select="grado"/></li>
+                                            <li>Decreto titulado en <xsl:value-of select="decretoTitulo/@año"/></li>
+                                        </ul>                                    
+                                    </div>
+                                </fieldset> 
+                            </xsl:for-each>
+                        </div>             
+                        <form action="peticion.jsp" method="get">
                             <fieldset>
-                                <legend>
-                                    <xsl:value-of select="nombre"/> &#40;
-                                    <xsl:value-of select="@id"/>&#41; 
-                                </legend>
-                                <div class="contenedor-ciclo">
-                                    <ul>
-                                        <li>Grado <xsl:value-of select="grado"/></li>
-                                        <li>año <xsl:value-of select="decretoTitulo/@año"/></li>
-                                    </ul>                                    
+                                <legend>Contacto</legend>
+                                <div class="contenedor-nombre">
+                                    <label for="nombre">Nombre: </label>
+                                    <input id="nombre" type="text" name="nombre"/>
+                                    <label for="apellidos">Apellidos: </label>
+                                    <input id="apellidos" type="text" name="apellidos"/>
                                 </div>
-                            </fieldset> 
-                        </xsl:for-each>
-                                                          
+                                <div class="contenedor-correo">
+                                    <label for="correo">Correo: </label>
+                                    <input type="text"/>
+                                </div>
+                                <div class="contenedor-comentario">
+                                    <label for="comentario">Comentario: </label>
+                                    <textarea style="resize: none;" rows="5" cols="80" name="observaciones"></textarea>                                                        
+                                </div>
+                                <input type="submit" value="Enviar"/>
+                            </fieldset>
+                        </form>   
                     </div>
+                                          
                 </main>
                 <footer>
-                    <div class="contenedor-enlaces">
-                        <a href="tel: +34 91 787 39 91">
-                            <xsl:value-of select="telefono"/>
-                        </a>
-                        <hr/>
-                        <a href="https://institutotecnologico.edix.com" target="_blank"><xsl:value-of select="@web"/></a>
-                        <hr/>
-                        <a href="https://www.grupoproeduca.com/"><xsl:value-of select="empresa"/></a>
-                    </div>
+                     <a href="tel: +34 91 787 39 91">Teléfono: 
+                        <xsl:value-of select="telefono"/>
+                    </a>
+                    
+                    <a href="https://institutotecnologico.edix.com" target="_blank">
+                        Enlace: 
+                        <xsl:value-of select="@web"/>
+                    </a>
+                   
+                    <a href="https://www.grupoproeduca.com/" target="_blank"><xsl:value-of select="empresa"/></a>
+            
                 </footer>
 
             </body>        

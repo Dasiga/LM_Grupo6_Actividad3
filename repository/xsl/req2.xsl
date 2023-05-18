@@ -62,7 +62,26 @@
                     </xsl:for-each>                    
                 </direccion>
             </plantilla>
-            
+            <formacion>
+                <grado>
+                    <xsl:attribute name="categoria">Superior</xsl:attribute>
+                    <ciclos>
+                        <xsl:for-each select="ciclos/ciclo">
+                            <ciclo>
+                                <xsl:attribute name="siglas">
+                                    <xsl:value-of select="@id"/>
+                                </xsl:attribute>
+                                <nombre><xsl:value-of select="nombre"/></nombre>
+                                <decreto>
+                                    <xsl:attribute name="año">
+                                        <xsl:value-of select="decretoTitulo/@año"/>
+                                    </xsl:attribute>                                    
+                                </decreto>
+                            </ciclo>
+                        </xsl:for-each>
+                    </ciclos>
+                </grado>
+            </formacion>
         </ite>                    
     </xsl:template>
 </xsl:stylesheet>

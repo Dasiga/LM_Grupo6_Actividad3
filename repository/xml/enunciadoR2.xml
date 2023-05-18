@@ -16,11 +16,11 @@
             <personal id="4" nombre="Tomás"/>
         </profesorado>
         <direccion>
-            <personal id="D1" cargo="director">
+            <personal id="director">
                 <nombre>Chon</nombre>
                 <despacho numero="31" planta="3ª" edificio="A"/>
             </personal>
-            <personal id="JE1" cargo="jefe estudios">
+            <personal id="jefe estudios">
                 <nombre>Dani</nombre>
                 <despacho numero="27" planta="2ª" edificio="B"/>
             </personal>

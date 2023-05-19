@@ -115,3 +115,20 @@ main form{
 main form *{
     margin-top: 2px;
 }
+
+.contenedor-form{
+    margin-top: 10px;
+}
+
+.display-dual{
+    display: flex;   
+    gap: 10px;
+}
+
+.dual-1{
+    flex-basis: 30%;
+}
+
+.dual-2{
+    flex-basis: 70%;
+}

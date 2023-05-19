@@ -90,21 +90,27 @@
                         <form action="peticion.jsp" method="get">
                             <fieldset>
                                 <legend>Contacto</legend>
-                                <div class="contenedor-nombre">
-                                    <label for="nombre">Nombre: </label>
-                                    <input id="nombre" type="text" name="nombre"/>
-                                    <label for="apellidos">Apellidos: </label>
-                                    <input id="apellidos" type="text" name="apellidos"/>
-                                </div>
-                                <div class="contenedor-correo">
-                                    <label for="correo">Correo: </label>
-                                    <input type="text"/>
-                                </div>
-                                <div class="contenedor-comentario">
+                                <div class="contenedor-form">
+                                    <div class="display-dual">                                    
+                                        <input class="dual-1" type="text" name="nombre" placeholder="Nombre"/>
+                                        <input class="dual-2" type="text" name="apellidos" placeholder="Apellidos"/>
+                                    </div>
+                                    <div class="display-dual">                                    
+                                        <input class="dual-2" type="email" placeholder="Correo"/>
+                                        <input class="dual-1" type="text" name="tel" placeholder="Teléfono"/>
+                                    </div>
+                                </div>                                
+                                <div class="contenedor-form">
                                     <label for="comentario">Comentario: </label>
-                                    <textarea style="resize: none;" rows="5" cols="80" name="observaciones"></textarea>                                                        
+                                    <textarea style="resize: none;" rows="5" cols="80" name="observaciones" placeholder="Mensaje..."></textarea>                                                        
                                 </div>
-                                <input type="submit" value="Enviar"/>
+                                <div class="contenedor-form">
+                                    <label>
+                                        <input type="checkbox" name="condiciones" value="Y"/>
+                                        He leído y acepto los términos y condiciones de uso.
+                                    </label>
+                                    <input id="button-form" type="submit" value="Enviar"/>
+                                </div>                                                            
                             </fieldset>
                         </form>   
                     </div>

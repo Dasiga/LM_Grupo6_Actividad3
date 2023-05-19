@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
     <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
@@ -62,25 +62,33 @@
                     </xsl:for-each>                    
                 </direccion>
             </plantilla>
-            <formacion>
-                <grado>
-                    <xsl:attribute name="categoria">Superior</xsl:attribute>
-                    <ciclos>
-                        <xsl:for-each select="ciclos/ciclo">
-                            <ciclo>
-                                <xsl:attribute name="siglas">
-                                    <xsl:value-of select="@id"/>
-                                </xsl:attribute>
-                                <nombre><xsl:value-of select="nombre"/></nombre>
-                                <decreto>
-                                    <xsl:attribute name="año">
-                                        <xsl:value-of select="decretoTitulo/@año"/>
-                                    </xsl:attribute>                                    
-                                </decreto>
-                            </ciclo>
-                        </xsl:for-each>
-                    </ciclos>
-                </grado>
+            <formacion>                
+                <xsl:choose>
+                   <xsl:when test="count(ciclos/ciclo[grado = 'Superior']) &gt; 0">                     
+                        <xsl:variable name="grado" select="ciclos/ciclo[grado = 'Superior'][1]/grado/text()"/>
+                        <grado>
+                            <xsl:attribute name="categoria">
+                                <xsl:value-of select="$grado"></xsl:value-of>
+                            </xsl:attribute>
+                            <ciclos>
+                                <xsl:for-each select="ciclos/ciclo[grado = $grado]">
+                                    <ciclo>
+                                        <xsl:attribute name="siglas">
+                                            <xsl:value-of select="@id"/>
+                                        </xsl:attribute>
+                                        <nombre><xsl:value-of select="nombre"/></nombre>
+                                        <decreto>
+                                            <xsl:attribute name="año">
+                                                <xsl:value-of select="decretoTitulo/@año"/>
+                                            </xsl:attribute>                                    
+                                        </decreto>
+                                    </ciclo>
+                                </xsl:for-each>
+                            </ciclos>
+                        </grado>
+                    </xsl:when>
+                    <xsl:otherwise>Actualmente no hay ciclos de grado Superior</xsl:otherwise>
+                </xsl:choose>           
             </formacion>
         </ite>                    
     </xsl:template>
